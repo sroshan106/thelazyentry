@@ -20,18 +20,33 @@ function addEntry() {
 	
 	var task = document.getElementsByName('task');
 	var element = document.createElement('li');
+	
+	if(startTime[0].value == '' || endTime[0].value == '' || task[0].value == ''){
 
-
+		if( startTime[0].value == '' ){
+			document.getElementsByClassName("labelStartTime")[0].style.color="red";
+			document.getElementsByClassName("labelStartTime")[0].innerHTML+="*";
+		}
+		if( endTime[0].value == '' ){
+			document.getElementsByClassName("labelEndTime")[0].style.color="red";
+			document.getElementsByClassName("labelEndTime")[0].innerHTML+="*";
+		}
+		if( task[0].value == '' ){
+			document.getElementsByClassName("labelTask")[0].style.color="red";
+			document.getElementsByClassName("labelTask")[0].innerHTML+="*";
+		}
+		document.getElementsByClassName("warning-message")[0].style.display="block";
+		return;
+	}
+	
 	if(startTime[0].value>endTime[0].value)
 	{
+		document.getElementsByClassName("labelEndTime")[0].style.color="red";
+		document.getElementsByClassName("labelEndTime")[0].innerHTML+="*";
 		document.getElementsByClassName("warning-message-time")[0].style.display="block";
 		return;
 	}
 
-	if(startTime[0].value == '' || endTime[0].value == '' || task[0].value == ''){
-		document.getElementsByClassName("warning-message")[0].style.display="block";
-		return;
-	}
 	element.setAttribute('draggable', 'true');
 	element.innerHTML = '<b>[' + formatTime(startTime[0].value) + ' - ' + formatTime(endTime[0].value) + ']</b> <i>' + task[0].value + '</i>';
 	startTime[0].value = endTime[0].value;
