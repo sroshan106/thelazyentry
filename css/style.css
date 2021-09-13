@@ -36,6 +36,11 @@
     color: red;
     display: none;
 }
+.labelStartTime,
+.labelEndTime,
+.labelTask{
+    display: none;
+}
 #data {
     background-color: antiquewhite;
     text-align: justify;

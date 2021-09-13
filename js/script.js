@@ -12,6 +12,10 @@ function addHeading() {
 function addEntry() {
 	document.getElementsByClassName("warning-message-time")[0].style.display="none";
 	document.getElementsByClassName("warning-message")[0].style.display="none";
+	document.getElementsByClassName("labelTask")[0].style.display="none";
+	document.getElementsByClassName("labelEndTime")[0].style.display="none";
+	document.getElementsByClassName("labelStartTime")[0].style.display="none";
+
 
 
 	var startTime = document.getElementsByName('startTime');
@@ -25,15 +29,15 @@ function addEntry() {
 
 		if( startTime[0].value == '' ){
 			document.getElementsByClassName("labelStartTime")[0].style.color="red";
-			document.getElementsByClassName("labelStartTime")[0].innerHTML+="*";
+			document.getElementsByClassName("labelStartTime")[0].style.display="inline-block";
 		}
 		if( endTime[0].value == '' ){
 			document.getElementsByClassName("labelEndTime")[0].style.color="red";
-			document.getElementsByClassName("labelEndTime")[0].innerHTML+="*";
+			document.getElementsByClassName("labelEndTime")[0].style.display="inline-block";
 		}
 		if( task[0].value == '' ){
 			document.getElementsByClassName("labelTask")[0].style.color="red";
-			document.getElementsByClassName("labelTask")[0].innerHTML+="*";
+			document.getElementsByClassName("labelTask")[0].style.display="inline-block";
 		}
 		document.getElementsByClassName("warning-message")[0].style.display="block";
 		return;
@@ -42,7 +46,7 @@ function addEntry() {
 	if(startTime[0].value>endTime[0].value)
 	{
 		document.getElementsByClassName("labelEndTime")[0].style.color="red";
-		document.getElementsByClassName("labelEndTime")[0].innerHTML+="*";
+		document.getElementsByClassName("labelEndTime")[0].style.display="inline-block";
 		document.getElementsByClassName("warning-message-time")[0].style.display="block";
 		return;
 	}
